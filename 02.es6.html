@@ -1,0 +1,76 @@
+<script>
+  const log = console.log;
+  // 반복문 ES6
+  const str = [];
+  str.push("A");
+  str.push("B");
+  str.push("C");
+
+  for (var i = 0; i < str.length; i++) {
+    log(i);
+  }
+  for (var i in str) {
+    log(str[i]);
+  }
+  // ES6
+  for (var v of str) {
+    log(v);
+  }
+  str.forEach(function (v, i, a) {
+    log(v, i, a);
+  });
+
+  var arr = [1, 2, 3, 4, 5];
+  var arr2 = arr.map(function (v) {
+    return v * 10;
+  });
+  log(arr);
+  log(arr2);
+
+  var arr3 = arr.filter(function (v) {
+    return v <= 3;
+  });
+  log(arr3);
+
+  var result = {
+    students: [{
+        name: "홍길동",
+        kor: 95,
+        eng: 80,
+        math: 85
+      },
+      {
+        name: "홍길순",
+        kor: 85,
+        eng: 75,
+        math: 80
+      },
+      {
+        name: "홍길만",
+        kor: 50,
+        eng: 70,
+        math: 75
+      },
+    ]
+  }
+
+  var korOver = result.students.filter(function (v) {
+    return v.kor >= 80;
+  });
+  log(korOver);
+
+  // ES6 Object
+  log(Object.entries(result.students));
+  for (var [k, v] of Object.entries(result.students)) {
+    log(k, v);
+  }
+  for (var [k, v] of Object.entries(result.students[0])) {
+    log(k, v);
+  }
+  for (var k of Object.keys(result.students[0])) {
+    log(k);
+  }
+  for (var v of Object.values(result.students[0])) {
+    log(v);
+  }
+</script>
