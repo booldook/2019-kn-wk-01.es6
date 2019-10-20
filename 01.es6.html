@@ -1,19 +1,144 @@
-<script>
-var a;
-let b;
-const c = [];
-const d = {};
+<!DOCTYPE html>
+<html lang="ko">
 
-var a = 10;
-function test() {
-  var a = 20;
-}
-for(var i = 0; i<10; i++) {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
 
-}
-console.log(i);
-for(let i = 0; i<10; i++) {
+<body>
+  <div id="root">
 
-}
-console.log(i);
-</script>
+  </div>
+
+  <script>
+    var a;
+    let b;
+    const c = [];
+    const d = {};
+
+    var a = 10;
+
+    function test() {
+      var a = 20;
+    }
+    for (var i = 0; i < 10; i++) {
+
+    }
+    console.log(i);
+    for (let i = 0; i < 10; i++) {
+
+    }
+    console.log(i);
+
+    test2();
+    // 함수 선언문
+    function test2() {
+      console.log("hi~");
+    }
+
+    // 함수 표현식 ES5
+    const test3 = function (str) {
+      console.log(str);
+    }
+    test3("A");
+
+    // ES6 Arrow Function
+    const test4 = (str) => {
+      console.log(str);
+    }
+    test4("B");
+
+    // 리턴값이 있는 한줄의 함수는 아래와 같이 줄일 수 있다.
+    const test5 = str => str + str;
+    console.log(test5("CD"));
+
+    const test5_1 = () => 10;
+    const test5_2 = function () {
+      return 10;
+    }
+
+    const test6 = function (str) {
+      return str + str;
+    }
+    console.log(test6("EF"));
+
+
+    /* 자바스크립트 객체 */
+    // JSON - JavaScript Object Nation
+    // ES5
+    var Human = {
+      name: "홍길동",
+      age: 25,
+      favorite: ["A", "B", "C"],
+      addr: {
+        post: 10000,
+        addr1: "서울시 종로구",
+        addr2: "관철동 100"
+      },
+      run: function () {
+        console.log(this.name + "이 뛴다")
+      }
+    };
+
+    Human.name = "홍길순";
+    Human.run();
+
+    // IIEF
+    (function sample() {
+      console.log("HIHI");
+    })();
+
+    // ES5 객체
+    var Sample2 = (function () {
+      // 생성자
+      this.firstName;
+      this.lastName;
+
+      function Sample2(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+      // 메서드
+      Sample2.prototype.fullName = function () {
+        console.log(this.firstName + this.lastName);
+      }
+      return Sample2;
+    })();
+    var hong = new Sample2("홍", "길동");
+    var hong2 = new Sample2("홍", "길순");
+    hong.fullName();
+    hong2.fullName();
+
+    // ES6 객체
+    class Sample3 {
+      constructor(age, name) {
+        this.age = age;
+        this.name = name;
+      }
+      speak() {
+        // console.log(this.name + "는" + this.age + "입니다.");
+        console.log(`${this.name} 은(는) 나이가 ${this.age} 세 입니다. `);
+      }
+    }
+
+    const hong5 = new Sample3(25, "홍길동");
+    const hong6 = new Sample3(28, "홍길순");
+    hong5.speak();
+    hong6.speak();
+    var html = `
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    `;
+    // document.getElementById("root").innerHTML = html;
+    document.querySelector("#root").innerHTML = html;
+  </script>
+
+</body>
+
+</html>
